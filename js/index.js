@@ -1,11 +1,9 @@
 
-function usarCalculadoraDePresupuesto () {
-    let profesion = prompt("Ingrese su profesion");
-    console.log("Su profesion es: " + profesion);
-    let horas = prompt("Ingrese cantidad de horas a trabajar");
-    console.log("Cantidad de horas a trabajar: " + horas + " hs");
+
+   
+    function calcularHonorarios (profesion, horas){
     
-    let honorarios 
+    let honorarios;
     switch (profesion) {
     case "electricista":
         honorarios=10
@@ -37,14 +35,16 @@ function usarCalculadoraDePresupuesto () {
         break;
      case "ama de casa":
         honorarios=3
+        
              console.log ( "Su hora de trabajo vale: " + honorarios +  " U$D");          
-        break;
+        return honorarios;
+             break;
     default:
        honorarios = prompt("Su profesion no esta en nuestra lista. Ingrese su precio en u$d por hora");
         break;
- 
-}
-
+    }
+    console.log (horas);
+    console.log (honorarios);
     let presupuesto = (horas*honorarios);
     console.log ("Su presupuesto es de: " + presupuesto + " U$D");
 
@@ -56,8 +56,16 @@ function usarCalculadoraDePresupuesto () {
 }
 
 
+function usarCalculadora () {
 
-usarCalculadoraDePresupuesto();
+    let profesion = prompt("Ingrese su profesion");
+    console.log("Su profesion es: " + profesion);
+    let horas = prompt("Ingrese cantidad de horas a trabajar");
+    console.log("Cantidad de horas a trabajar: " + horas + " hs");
+    calcularHonorarios(profesion, horas);
+   
+}
 
 
 
+usarCalculadora();
