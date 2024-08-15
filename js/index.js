@@ -1,71 +1,57 @@
-
-
-   
-    function calcularHonorarios (profesion, horas){
+function cargaDeDatos(){
+    function autos (nombre, km, aceite, correa, cubierta) {
+             this.nombre = nombre;
+             this.km = km;
+             this.aceite= aceite;
+             this.correa= correa;
+             this.cubierta= cubierta;
     
-    let honorarios;
-    switch (profesion) {
-    case "electricista":
-        honorarios=10
-            console.log ( "Su hora de trabajo vale: " + honorarios +  " U$D");
-        break;
-    case "gasista":
-        honorarios=8
-            console.log ( "Su hora de trabajo vale: " + honorarios +  " U$D");          
-        break;
-    case "plomero":
-        honorarios=3
-            console.log ( "Su hora de trabajo vale: " + honorarios +  " U$D");          
-        break;
-    case "mecanico":
-        honorarios=15
-          console.log ( "Su hora de trabajo vale: " + honorarios +  " U$D");          
-        break;
-    case "carpintero":
-        honorarios=12
-            console.log ( "Su hora de trabajo vale: " + honorarios +  " U$D");
-        break;
-    case "jardinero":
-        honorarios=8
-            console.log ( "Su hora de trabajo vale: " + honorarios +  " U$D");          
-        break;
-    case "herrero":
-        honorarios=8
-            console.log ( "Su hora de trabajo vale: " + honorarios +  " U$D");          
-        break;
-     case "ama de casa":
-        honorarios=3
-        
-             console.log ( "Su hora de trabajo vale: " + honorarios +  " U$D");          
-        return honorarios;
-             break;
-    default:
-       honorarios = prompt("Su profesion no esta en nuestra lista. Ingrese su precio en u$d por hora");
-        break;
     }
-    console.log (horas);
-    console.log (honorarios);
-    let presupuesto = (horas*honorarios);
-    console.log ("Su presupuesto es de: " + presupuesto + " U$D");
-
-    let comision = (presupuesto*0.05);
-    console.log ("La comision de la plataforma es de un 5%: " + comision + " U$D");
-    console.log ("Su ganacia total es: " + (presupuesto-comision) + " U$D");
-    console.log ("Gracias por usar nuesta plataforma")
- 
-}
-
-
-function usarCalculadora () {
-
-    let profesion = prompt("Ingrese su profesion");
-    console.log("Su profesion es: " + profesion);
-    let horas = prompt("Ingrese cantidad de horas a trabajar");
-    console.log("Cantidad de horas a trabajar: " + horas + " hs");
-    calcularHonorarios(profesion, horas);
-   
-}
-
-
-
-usarCalculadora();
+      const autos1 = new autos (prompt("Ingrese la marca del auto"), prompt ("Ingrese sus km "), prompt ("Ingrese km de su ultimo cambio de aceite "), prompt ("Ingrese km de su ultimo cambio de correa") );
+      return autos1;
+    }
+    
+    function calcularCambioAceite(autos1){
+     
+      autos1.aceite=parseInt(autos1.aceite);
+      let cambioAceite = autos1.aceite+10000;
+     
+    
+      if (autos1.km - autos1.aceite > 10000) {
+        alert("¡Atención! El cambio de aceite está atrasado.");
+    } 
+            else {
+        console.log("el proximo cambio de aceite es en: " + cambioAceite + " km");
+    }
+    }
+    
+    function calcularCambioCorrea(autos1) {
+    
+        autos1.correa=parseInt(autos1.correa);
+        let cambioCorrea = autos1.correa+60000;
+    
+    if (autos1.km - autos1.correa > 60000) {
+        alert("¡Atención! El cambio de correa está atrasado.");
+    } 
+            else {
+        console.log("el proximo cambio de correa es en: " + cambioCorrea + " km");
+    }
+    }
+    
+    function mantenimiento (){
+    
+    
+        const autos1 = cargaDeDatos();
+    
+        console.log(autos1);
+    
+        calcularCambioAceite(autos1);
+        calcularCambioCorrea(autos1);
+    
+        const mantenimientoArray = [autos1.km, autos1.aceite + 10000, autos1.correa + 60000];
+        console.log(mantenimientoArray);
+        
+    }
+    
+    mantenimiento();
+    
